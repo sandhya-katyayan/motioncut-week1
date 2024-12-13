@@ -1,0 +1,279 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: url('backaground.jpg') no-repeat center center; /* Use your image path here */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Tree Styles */
+.tree-right {
+  position: absolute;
+  bottom: -15%; /* Adjusted for visibility */
+  width: 40%; /* Adjust for better responsiveness */
+  height: 100vh; /* Fixed height for responsiveness */
+  left: 55%; /* Positioned to the right */
+  z-index: 25; /* Ensure it doesn't get hidden behind other elements */
+  background: url('tree_transparent.png') no-repeat center/contain;
+}
+
+/* Falling Leaf Styles */
+
+
+
+
+
+/* Cycle Styles */
+.cycle {
+  position: absolute;
+  bottom: 20px;
+  left: 10%;
+  z-index: 20;
+  animation: cycleMove 10s linear infinite; /* Smooth horizontal movement */
+}
+
+.cycle img {
+  width: 90%;
+  height: auto;
+}
+
+/* Cycle Movement Animation (Horizontal Movement) */
+@keyframes cycleMove {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(100vw); /* Move completely across the screen */
+  }
+}
+/* Falling Leaf Styles */
+.leaf {
+  position: absolute;
+  top: -50px;
+  width: 10%;
+  height: auto;
+  pointer-events: none;
+  z-index: 60;
+  animation: fall 6s linear infinite, drift 6s linear infinite;
+}
+
+/* Falling Animation */
+@keyframes fall {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+
+/* Horizontal Drift */
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+
+/* Form Styling */
+.form-container {
+  position: absolute;
+  z-index: 30; /* Make sure the form is above other elements */
+  top: 20%; /* Position form slightly down */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #6e0606;
+}
+
+/* Input Fields */
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.3s;
+  color: maroon;
+}
+
+.input-box input:focus {
+  border-color: #490e08;
+}
+
+.input-box label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  pointer-events: none;
+  transition: 0.3s;
+  color: #400505;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -20px;
+  font-size: 0.8rem;
+  color: #300805;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 15px;
+  background: #850f04;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #e65c50;
+}
+
+/* Links */
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.link {
+  font-size: 1rem;
+  color: #53100a;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: #e65c50;
+}
+
+/* Responsive Design */
+@media (max-width: 2560px) {
+  .tree-right {
+    width: 80%;
+    height: 90vh; /* Adjust for smaller screens */
+    margin-left: -30%;
+    margin-bottom: 50px; /* Adjust position */
+  }
+
+  .cycle {
+    width: 12%;
+    left: 30%;
+    bottom: 1px;
+    animation: cycleMove 10s linear infinite; /* Adjust speed */
+  }
+}
+
+@media (max-width: 1024px) {
+  .tree-right {
+    width: 80%;
+    height: 90vh; /* Adjust for smaller screens */
+    margin-left: -30%;
+    margin-bottom: 50px; /* Adjust position */
+  }
+
+  .cycle {
+    width: 170px;
+    left: 30%;
+    bottom: 3px;
+    animation: cycleMove 10s linear infinite; /* Adjust speed */
+  }
+}
+
+@media (max-width: 768px) {
+  .tree-right {
+    width: 90%;
+    height: 90vh; /* Adjust for smaller screens */
+    margin-left: -30%;
+    margin-bottom: -11px; /* Adjust position */
+  }
+
+  .cycle {
+    width: 25%;
+    left: 30%;
+    bottom: 10px;
+    animation: cycleMove 10s linear infinite; /* Adjust speed */
+  }
+}
+
+@media (max-width: 480px) {
+  .tree-right {
+    width: 80%;
+    height: 100%; /* Adjust for smaller screens */
+    margin-left: -30%;
+    margin-bottom: -29%; /* Adjust position */
+  }
+
+  .cycle {
+    width: 30%;
+    left: 30%;
+    animation: cycleMove 10s linear infinite; /* Adjust speed */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+}
